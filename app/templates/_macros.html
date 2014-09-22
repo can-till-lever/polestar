@@ -1,0 +1,7 @@
+{% macro showfielderror( errors ) -%}
+        {% if errors  %} 
+              <tr><td><td>
+           <ul class="errors">{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+           </tr>
+           {% endif %}
+{%- endmacro %}

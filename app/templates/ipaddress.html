@@ -1,0 +1,24 @@
+{% extends "_page.html" %}
+{% block body %}
+
+<div><p><a href="{{ url_for('ipaddress_add_get') }}">Add IP Address</a></div>
+
+<table>
+{% for address in ipaddresses %}
+<tr>
+  <td>{{address.idorganization}}
+  <td>{% if address.parent %} ({{address.parent}}) {% endif %}
+  <td>{% if address.fqdn %} {{address.fqdn}} {% endif %}
+  <td>{{address.ipaddress}}
+  <td>{% if address.name %} {{address.name}} {% endif %}
+  <td>{% if address.description %} {{address.description}} {% endif %}
+  <td>{% if address.url %} {{address.url}} {% endif %}
+  <td>
+    <a href="{{ url_for('ipaddress_edit_get', idipaddress=address.idipaddress) }}" >Edit</a> |
+    <a href="{{ url_for('ipaddress_delete', idipaddress=address.idipaddress) }}" >Delete</a>
+  </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
+

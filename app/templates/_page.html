@@ -1,0 +1,40 @@
+<html>
+  <head>
+    {% if org %}
+    <title>polestar for {{org}}</title>
+    {% else %}
+    <title>polestar</title>
+    {% endif %}
+    </head>
+  <body>
+  
+    {% if org %}
+    <h1>{{org}}</h1>
+    {% endif %}
+  
+    <div>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Start</a>
+        <li><a href="{{ url_for('organizations') }}">Organizations</a>
+        <li><a href="{{ url_for('ipaddresses') }}">IP Addresses</a>
+        <li><a href="{{ url_for('hosttypes') }}">Host Types</a>
+        <li><a href="{{ url_for('hosts') }}">Hosts</a>
+        <li><a href="{{ url_for('circuits') }}">Circuits</a>
+        <li><a href="{{ url_for('interfaces') }}">Interfaces</a>
+        </ul>
+      </div>
+  
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+        
+    {% block body %}{% endblock %}
+    
+    </body>
+  </html>

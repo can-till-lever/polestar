@@ -1,0 +1,58 @@
+{% import '_macros.html' as macros %}
+
+{% extends "_page.html" %}
+{% block body %}
+
+{% if 'add' == mode %}
+  <h1>Add IP Address</h1>
+  <form action="" method="post" name="ipaddress_add_post">
+  {% endif %}
+{% if 'edit' == mode %}
+  <h1>Edit IP Address</h1>
+  <form action="" method="post" name="ipaddress_edit_post">
+  {% endif %}
+{{form.hidden_tag()}}
+  <table>
+    <tr>
+      <td align="right">ip address:</td>
+      <td>{{form.ipaddress(size=16)}}
+      </tr>
+      {{ macros.showfielderror( form.ipaddress.errors ) }}
+    <tr>
+      <td align="right">name:</td>
+      <td>{{form.name(size=30)}}</td>
+      </tr>
+      {{ macros.showfielderror( form.name.errors ) }}
+    <tr>
+      <td align="right">parent:</td>
+      <td>{{form.parent}}</td>
+      </tr>
+      {{ macros.showfielderror( form.parent.errors ) }}
+    <tr>
+      <td align="right">idorganization:</td>
+      <td>{{form.idorganization}}</td>
+      </tr>
+      {{ macros.showfielderror( form.idorganization.errors ) }}
+    <tr>
+      <td align="right">description:</td>
+      <td>{{form.description(size=50)}}</td>
+      </tr>
+      {{ macros.showfielderror( form.description.errors ) }}
+    <tr>
+      <td align="right">fqdn:</td>
+      <td>{{form.fqdn(size=50)}}</td>
+      </tr>
+      {{ macros.showfielderror( form.fqdn.errors ) }}
+    <tr>
+      <td align="right">url:</td>
+      <td>{{form.url(size=50)}}</td>
+      </tr>
+      {{ macros.showfielderror( form.url.errors ) }}
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Save Changes"></td>
+    </table>
+  </form>
+
+{% endblock %}
+
