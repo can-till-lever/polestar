@@ -6,40 +6,40 @@ Development suspended due to some troubleshooting issues with py-postgresql libr
 appears to be that py-postgresql has some issues with cidr style field types.  I could go with psycopg2, but 
 havn't bitten that bullet yet.
 
-sudo apt-get install build-essential
-sudo apt-get install python3-dev
+<br>sudo apt-get install build-essential
+<br>sudo apt-get install python3-dev
 
-mkdir polestar
-cd polestar
+<br>mkdir polestar
+<br>cd polestar
 
-virtualenv --python=/usr/bin/python3 env
-. env/bin/activate
+<br>virtualenv --python=/usr/bin/python3 env
+<br>. env/bin/activate
 
-mkdir app
-mkdir app/static
-mkdir app/templates
-mkdir tmp
+<br>mkdir app
+<br>mkdir app/static
+<br>mkdir app/templates
+<br>mkdir tmp
 
-pip install flask
-pip install flask-login
-pip install flask-openid
-pip install flask-mail
-pip install sqlalchemy
-pip install flask-sqlalchemy
-pip install sqlalchemy-migrate
-pip install flask-migrate
-pip install flask-whooshalchemy
-pip install flask-wtf
-pip install pytz
-pip install flask-babel
-#pip install flup
-pip install py-postgresql
-pip install netaddr
+<br>pip install flask
+<br>pip install flask-login
+<br>pip install flask-openid
+<br>pip install flask-mail
+<br>pip install sqlalchemy
+<br>pip install flask-sqlalchemy
+<br>pip install sqlalchemy-migrate
+<br>pip install flask-migrate
+<br>pip install flask-whooshalchemy
+<br>pip install flask-wtf
+<br>pip install pytz
+<br>pip install flask-babel
+<br>pip install flup
+<br>pip install py-postgresql
+<br>pip install netaddr
 
-sudo su - postgres
-psql
-create role polestar login password 'starring';
-create database polestar with owner polestar;
+<br>sudo su - postgres
+<br>psql
+<br>create role polestar login password 'starring';
+<br>create database polestar with owner polestar;
 
->>>from app import db
->>>db_create_all()
+<br>from app import db
+<br>db_create_all()
